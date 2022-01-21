@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1313,2243" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1313,950" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="39">
       <x:String>System.Activities</x:String>
@@ -237,7 +237,7 @@
         </ui:OpenBrowser.Body>
       </ui:OpenBrowser>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="In contrast to the API integration approach, the human activities should be simulated here as well as possible - accordingly, one activity is done after the other and not, for example, the reading of information in Excel in one go. Nevertheless I decided to use one or the other API functionality, because otherwise the workflow would be much longer. For example, Excel is not opened by double-clicking on the Excel icon, but via the Excel Application Scope. To keep it &quot;simple&quot;, everything is in this one workflow, which in practice would of course be distributed over several called workflows to avoid having so many nested activities." DisplayName="02 Get recipient information and compose/send mail for every recipient" sap:VirtualizedContainerService.HintSize="200,438" sap2010:WorkflowViewState.IdRef="Sequence_36">
+    <Sequence sap2010:Annotation.AnnotationText="In contrast to the API integration approach, the human activities should be simulated here as well as possible - accordingly, one activity is done after the other and not, for example, the reading of information in Excel in one go. Nevertheless I decided to use one or the other API functionality, because otherwise the workflow would be much longer. For example, Excel is not opened by double-clicking on the Excel icon, but via the Excel Application Scope. To keep it &quot;simple&quot;, everything is in this one workflow, which in practice would of course be distributed over several called workflows to avoid having so many nested activities." DisplayName="02 Get recipient information and compose/send mail for every recipient" sap:VirtualizedContainerService.HintSize="304,465" sap2010:WorkflowViewState.IdRef="Sequence_36">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Int32" Name="counter" />
       </Sequence.Variables>
@@ -248,7 +248,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign DisplayName="Initialize counter to 1" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign DisplayName="Initialize counter to 1" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
           <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
         </Assign.To>
@@ -256,13 +256,13 @@
           <InArgument x:TypeArguments="x:Int32">2</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Set Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,1569" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="[pathRecipientsTable]">
+      <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Set Excel Application Scope" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="[pathRecipientsTable]">
         <ui:ExcelApplicationScope.Body>
           <ActivityAction x:TypeArguments="ui:WorkbookApplication">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="376,1460" sap2010:WorkflowViewState.IdRef="Sequence_34">
+            <Sequence sap:VirtualizedContainerService.HintSize="554,2245" sap2010:WorkflowViewState.IdRef="Sequence_34">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="clipboardContent" />
               </Sequence.Variables>
@@ -271,8 +271,8 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ExcelSelectRange DisplayName="Select Cell with recipient's first name" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelSelectRange_3" Range="[&quot;A&quot;+counter.ToString]" SheetName="recipients" />
-              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Copy cell value to clipboard (CTRL+C hotkey)" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="SendHotkey_6" Key="c" KeyModifiers="Ctrl">
+              <ui:ExcelSelectRange DisplayName="Select Cell with recipient's first name" sap:VirtualizedContainerService.HintSize="512,59" sap2010:WorkflowViewState.IdRef="ExcelSelectRange_3" Range="[&quot;A&quot;+counter.ToString]" SheetName="recipients" />
+              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Copy cell value to clipboard (CTRL+C hotkey)" sap:VirtualizedContainerService.HintSize="512,116" sap2010:WorkflowViewState.IdRef="SendHotkey_6" Key="c" KeyModifiers="Ctrl">
                 <ui:SendHotkey.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="a943d0c8-a0e1-4f69-b8be-5fd990dbf940">
                     <ui:Target.TimeoutMS>
@@ -284,20 +284,20 @@
                   </ui:Target>
                 </ui:SendHotkey.Target>
               </ui:SendHotkey>
-              <ui:GetFromClipboard TimeoutMS="{x:Null}" DisplayName="Get value from clipboard" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="GetFromClipboard_1">
+              <ui:GetFromClipboard TimeoutMS="{x:Null}" DisplayName="Get value from clipboard" sap:VirtualizedContainerService.HintSize="512,22" sap2010:WorkflowViewState.IdRef="GetFromClipboard_1">
                 <ui:GetFromClipboard.Result>
                   <OutArgument x:TypeArguments="x:String">[clipboardContent]</OutArgument>
                 </ui:GetFromClipboard.Result>
               </ui:GetFromClipboard>
-              <ui:InterruptibleWhile DisplayName="While there is still a recipient to process" sap:VirtualizedContainerService.HintSize="334,1051" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+              <ui:InterruptibleWhile DisplayName="While there is still a recipient to process" sap:VirtualizedContainerService.HintSize="512,1876" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
                 <ui:InterruptibleWhile.Body>
-                  <Sequence DisplayName="Get recipients name and email &amp; create and send a new email" sap:VirtualizedContainerService.HintSize="242,886" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                  <Sequence DisplayName="Get recipients name and email &amp; create and send a new email" sap:VirtualizedContainerService.HintSize="476,1711" sap2010:WorkflowViewState.IdRef="Sequence_26">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window of Outlook inbox" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="WindowScope_14" InformativeScreenshot="2c92bdc8c071d771a95deb3d2fc76b9f" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='Posteingang - scep@zhaw.ch - Outlook' /&gt;">
+                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window of Outlook inbox" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="WindowScope_14" InformativeScreenshot="2c92bdc8c071d771a95deb3d2fc76b9f" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='Posteingang - scep@zhaw.ch - Outlook' /&gt;">
                       <ui:WindowScope.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
@@ -334,7 +334,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:WindowScope>
-                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window of outlook's new message window" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="WindowScope_15" InformativeScreenshot="c42e4cd6f89828f8954546a4b3e2b724" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='Unbenannt - Nachricht (HTML) ' /&gt;">
+                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window of outlook's new message window" sap:VirtualizedContainerService.HintSize="434,876" sap2010:WorkflowViewState.IdRef="WindowScope_15" InformativeScreenshot="c42e4cd6f89828f8954546a4b3e2b724" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='Unbenannt - Nachricht (HTML) ' /&gt;">
                       <ui:WindowScope.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
@@ -370,7 +370,7 @@
                                 </ui:Target>
                               </ui:SendHotkey.Target>
                             </ui:SendHotkey>
-                            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type the remaining text in the email body window" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="[k(enter)][k(enter)]Enjoy the attached dog image.[k(enter)][k(enter)]Regards,[k(enter)]CuteBot">
+                            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type the remaining text in the email body window" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="[k(enter)][k(enter)]Enjoy the attached dog image.[k(enter)][k(enter)]Wuff[k(enter)]Dog CEO">
                               <ui:TypeInto.Target>
                                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="27fd36e9-5bac-4cbb-91aa-d19bf543f927" InformativeScreenshot="9cba300dc83bb564346846c9b30374a3" Selector="&lt;uia automationid='Body' name='1-Seiteninhalt' role='Bearbeiten' /&gt;">
                                   <ui:Target.TimeoutMS>
@@ -399,12 +399,12 @@
                       </ui:WindowScope.Body>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:WindowScope>
-                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Excel Window" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="WindowScope_16" InformativeScreenshot="56f9170d679e2d4ba1ec196433f3138c" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='recipients.xlsx - Excel' /&gt;">
+                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Excel Window" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="WindowScope_16" InformativeScreenshot="56f9170d679e2d4ba1ec196433f3138c" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='recipients.xlsx - Excel' /&gt;">
                       <ui:WindowScope.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
@@ -439,7 +439,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:WindowScope>
-                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window of outlook's new message window" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="WindowScope_17" InformativeScreenshot="d534dd65ff4f895bc974f07448eb8488" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='Unbenannt - Nachricht (HTML) ' /&gt;">
+                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window of outlook's new message window" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="WindowScope_17" InformativeScreenshot="d534dd65ff4f895bc974f07448eb8488" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='Unbenannt - Nachricht (HTML) ' /&gt;">
                       <ui:WindowScope.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
@@ -500,7 +500,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:WindowScope>
-                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach the file select window" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="WindowScope_18" Selector="&lt;wnd app='outlook.exe' cls='#32770' title='Datei einfügen' /&gt;">
+                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach the file select window" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="WindowScope_18" Selector="&lt;wnd app='outlook.exe' cls='#32770' title='Datei einfügen' /&gt;">
                       <ui:WindowScope.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
@@ -556,7 +556,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:WindowScope>
-                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window of outlook's new message window" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="WindowScope_19" InformativeScreenshot="2c92bdc8c071d771a95deb3d2fc76b9f" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' title='Super Cute - Nachricht (HTML) ' /&gt;">
+                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window of outlook's new message window" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="WindowScope_19" InformativeScreenshot="2c92bdc8c071d771a95deb3d2fc76b9f" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' omit:title='Super Cute - Nachricht (HTML) ' /&gt;">
                       <ui:WindowScope.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
@@ -593,7 +593,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:WindowScope>
-                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Window="{x:Null}" ContinueOnError="True" DisplayName="Attach window of spell checking if existing" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="WindowScope_20" Selector="&lt;wnd app='outlook.exe' cls='bosa_sdm_Mso96' title='Rechtschreibung: Deutsch (Schweiz)' /&gt;" TimeoutMS="3000">
+                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Window="{x:Null}" ContinueOnError="True" DisplayName="Attach window of spell checking if existing" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="WindowScope_20" Selector="&lt;wnd app='outlook.exe' cls='bosa_sdm_Mso96' title='Rechtschreibung: Deutsch (Schweiz)' /&gt;" TimeoutMS="3000">
                       <ui:WindowScope.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
@@ -630,7 +630,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:WindowScope>
-                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Window="{x:Null}" ContinueOnError="True" DisplayName="Attach spell checking abortion dialog if existing" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="WindowScope_21" Selector="&lt;wnd app='outlook.exe' cls='#32770' title='Microsoft Outlook' /&gt;" TimeoutMS="3000">
+                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Window="{x:Null}" ContinueOnError="True" DisplayName="Attach spell checking abortion dialog if existing" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="WindowScope_21" Selector="&lt;wnd app='outlook.exe' cls='#32770' title='Microsoft Outlook' /&gt;" TimeoutMS="3000">
                       <ui:WindowScope.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
@@ -667,7 +667,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:WindowScope>
-                    <Sequence DisplayName="Prepare next recipient" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                    <Sequence DisplayName="Prepare next recipient" sap:VirtualizedContainerService.HintSize="434,66" sap2010:WorkflowViewState.IdRef="Sequence_38">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -712,7 +712,7 @@
         </ui:ExcelApplicationScope.Body>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>

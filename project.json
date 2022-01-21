@@ -1,12 +1,12 @@
 {
   "name": "ui-vs-api-integration-demo",
   "description": "Implements the same process twice, once using ui integration, once using api integration. The process consists of sending a random dog image to recipients contained in a excel spreadsheet.",
-  "main": "api-integration.xaml",
+  "main": "ui-integration.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.9.3]",
     "UiPath.Mail.Activities": "[1.9.3]",
     "UiPath.System.Activities": "[20.10.1]",
-    "UiPath.UIAutomation.Activities": "[20.10.5]",
+    "UiPath.UIAutomation.Activities": "[20.10.6]",
     "UiPath.WebAPI.Activities": "[1.6.0]"
   },
   "webServices": [],
